@@ -12,7 +12,8 @@
 
 	"settings": {
 		// Loading projects on demand is better for larger codebases
-		"omnisharp.enableMsBuildLoadProjectsOnDemand": true
+		"omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+		"omnisharp.testRunSettings": "${containerWorkspaceFolder}/artifacts/obj/vscode/.runsettings"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
