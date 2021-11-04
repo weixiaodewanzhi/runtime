@@ -781,14 +781,14 @@ private:
                 }
                 else
                 {
-                    compiler->fgNewStmtAtEnd(thenBlock, call, stmt->GetILOffsetX());
+                    compiler->fgNewStmtAtEnd(thenBlock, call);
                 }
             }
             else
             {
                 // Add the call.
                 //
-                compiler->fgNewStmtAtEnd(thenBlock, call, stmt->GetILOffsetX());
+                compiler->fgNewStmtAtEnd(thenBlock, call);
 
                 // Re-establish this call as an inline candidate.
                 //
@@ -831,7 +831,7 @@ private:
             elseBlock = CreateAndInsertBasicBlock(BBJ_NONE, thenBlock);
             elseBlock->bbFlags |= currBlock->bbFlags & BBF_SPLIT_GAINED;
             GenTreeCall* call    = origCall;
-            Statement*   newStmt = compiler->gtNewStmt(call, stmt->GetILOffsetX());
+            Statement*   newStmt = compiler->gtNewStmt(call);
 
             call->gtFlags &= ~GTF_CALL_INLINE_CANDIDATE;
             call->SetIsGuarded();

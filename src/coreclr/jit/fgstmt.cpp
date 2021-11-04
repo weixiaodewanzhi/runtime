@@ -101,14 +101,13 @@ void Compiler::fgInsertStmtAtBeg(BasicBlock* block, Statement* stmt)
 // Arguments:
 //   block - the block into which 'tree' will be inserted;
 //   tree  - the tree to be inserted.
-//   offs  - the offset to use for the statement
 //
 // Return Value:
 //    The new created statement with `tree` inserted into `block`.
 //
-Statement* Compiler::fgNewStmtAtBeg(BasicBlock* block, GenTree* tree, IL_OFFSETX offs)
+Statement* Compiler::fgNewStmtAtBeg(BasicBlock* block, GenTree* tree)
 {
-    Statement* stmt = gtNewStmt(tree, offs);
+    Statement* stmt = gtNewStmt(tree);
     fgInsertStmtAtBeg(block, stmt);
     return stmt;
 }
@@ -154,7 +153,6 @@ void Compiler::fgInsertStmtAtEnd(BasicBlock* block, Statement* stmt)
 // Arguments:
 //   block - the block into which 'stmt' will be inserted;
 //   tree  - the tree to be inserted.
-//   offs  - the offset to use for the statement
 //
 // Return Value:
 //    The new created statement with `tree` inserted into `block`.
@@ -162,9 +160,9 @@ void Compiler::fgInsertStmtAtEnd(BasicBlock* block, Statement* stmt)
 // Note:
 //   If the block can be a conditional block, use fgNewStmtNearEnd.
 //
-Statement* Compiler::fgNewStmtAtEnd(BasicBlock* block, GenTree* tree, IL_OFFSETX offs)
+Statement* Compiler::fgNewStmtAtEnd(BasicBlock* block, GenTree* tree)
 {
-    Statement* stmt = gtNewStmt(tree, offs);
+    Statement* stmt = gtNewStmt(tree);
     fgInsertStmtAtEnd(block, stmt);
     return stmt;
 }
@@ -247,9 +245,9 @@ void Compiler::fgInsertStmtNearEnd(BasicBlock* block, Statement* stmt)
 // Return Value:
 //    The new created statement with `tree` inserted into `block`.
 //
-Statement* Compiler::fgNewStmtNearEnd(BasicBlock* block, GenTree* tree, IL_OFFSETX offs)
+Statement* Compiler::fgNewStmtNearEnd(BasicBlock* block, GenTree* tree)
 {
-    Statement* stmt = gtNewStmt(tree, offs);
+    Statement* stmt = gtNewStmt(tree);
     fgInsertStmtNearEnd(block, stmt);
     return stmt;
 }
